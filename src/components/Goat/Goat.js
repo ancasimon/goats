@@ -27,8 +27,13 @@ class Goat extends React.Component {
             <p className="card-text">Beard Length: {goat.beardLength}</p>
           </div>
           <div className="card-footer">
-            <button className="btn btn-dark" onClick={this.useGoatEvent}>Use the goat</button>
-            <button className="btn btn-primary" onClick={this.freeGoatEvent}>Free the goat</button>
+            {
+              goat.isBusy ? (
+                <button className="btn btn-primary" onClick={this.freeGoatEvent}>Free the goat</button>
+              ) : (
+                <button className="btn btn-dark" onClick={this.useGoatEvent}>Use the goat</button>
+              )
+            }
           </div>
         </div>
       </div>
