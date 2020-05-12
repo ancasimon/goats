@@ -3,12 +3,19 @@ import './App.scss';
 
 import goatData from '../helpers/data/goatData';
 
+import GoatCoral from '../components/GoatCoral/GoatCoral';
+
 class App extends React.Component {
+  state = {
+    goats: [],
+  }
   // outside render - this is where we do anything that modifies state
 
   componentDidMount() {
     const goats = goatData.getGoats();
     console.error('goats', goats);
+    this.setState({ goats });
+    // we write it one timebecause the key and the value are the same thing here!!!
   }
 
   render() {
@@ -16,7 +23,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1 className='goat-title'>Simon Goat Farm</h1>
-        <button className="btn btn-dark">Click Here</button>
+        <GoatCoral goats={this.state.goats} />
       </div>
     );
   }
