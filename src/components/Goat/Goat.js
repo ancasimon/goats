@@ -9,6 +9,12 @@ class Goat extends React.Component {
     useAGoat(goat.id);
   }
 
+  freeGoatEvent = (e) => {
+    e.preventDefault();
+    const { goat, freeAGoat } = this.props;
+    freeAGoat(goat.id);
+  }
+
   render() {
     // everywhere in this render method, where you see th word goat, then that is this.props.goat
     const { goat } = this.props;
@@ -22,6 +28,7 @@ class Goat extends React.Component {
           </div>
           <div className="card-footer">
             <button className="btn btn-dark" onClick={this.useGoatEvent}>Use the goat</button>
+            <button className="btn btn-primary" onClick={this.freeGoatEvent}>Free the goat</button>
           </div>
         </div>
       </div>
